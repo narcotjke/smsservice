@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+@using UI.Models.Menu
+@using WebGrease.Css.Extensions
+@model MenuViewModel
+
+<div id="menu">
+    @{
+        foreach (var category in Model.Categories)
+        {
+            <h3>@category.Name</h3>
+            <div>
+                @if (category.CategoryItems != null)
+                {
+                    foreach (var item in category.CategoryItems)
+                    {
+                        <div>@Html.ActionLink(item.Name, item.ActionName, item.ControllerName)</div>
+                    }
+                }
+            </div>
+        }
+    }
+</div>

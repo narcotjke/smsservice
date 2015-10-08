@@ -1,0 +1,85 @@
+﻿@model UI.Models.SubscribersBaseViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@Scripts.Render("~/bundles/uploadify")
+@Styles.Render("~/Content/uploadify")
+
+<h2>Create</h2>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#uploadFileTab" data-toggle="tab">Загрузить файл</a></li>
+    <li><a href="#addManualTab" data-toggle="tab">Добавить вручную</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="uploadFileTab">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>SubscribersBaseViewModel</h4>
+                <hr/>
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SubscribersNumber, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SubscribersNumber)
+                        @Html.ValidationMessageFor(model => model.SubscribersNumber)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CreationDate, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CreationDate)
+                        @Html.ValidationMessageFor(model => model.CreationDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Path, new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Path)
+                        @Html.ValidationMessageFor(model => model.Path)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default"/>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane" id="addManualTab">
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <input type="file" id="fileUpload" class="upload-button" />
+                    </td>
+                    <td>
+                        <button class="uploadify-button upload-button" id="uploadFiles">Загрузить</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "_DeliveryPeriodPanel";
+}
+
+@Styles.Render("~/Content/datepicker")
+@Scripts.Render("~/bundles/datepicker")
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label>Период: </label>
+            <input type="text" id="from" />
+            <input type="text" id="to" />
+        </div>
+    </div>
+    <input type="submit" class="btn btn-danger"/>
+}
+
+
+
+
+
